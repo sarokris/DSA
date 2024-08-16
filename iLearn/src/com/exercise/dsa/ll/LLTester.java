@@ -7,5 +7,18 @@ public class LLTester {
         customLL.add(3);
         customLL.add(2);
         customLL.print();
+        System.out.println("Removing the last one");
+        customLL.removeLast();
+        customLL.print();
+        System.out.println("Removing the last one");
+        customLL.removeLast();
+        customLL.print();
+        customLL.addFirst(1);
+        customLL.print();
+        customLL.addFirst(2);
+        System.out.println(" head " + customLL.getHead().getValue());
+        System.out.println(" Tail " + customLL.getTail().getValue());
+        System.out.println(" Length " + customLL.getLength());
+
     }
 }
