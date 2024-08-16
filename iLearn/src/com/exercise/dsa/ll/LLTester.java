@@ -7,8 +7,10 @@ public class LLTester {
         customLL.add(3);
         customLL.add(2);
         customLL.print();
+        System.out.println(" Length " + customLL.getLength());
         System.out.println("Removing the last one");
         customLL.removeLast();
+        System.out.println(" Length " + customLL.getLength());
         customLL.print();
         System.out.println("Removing the last one");
         customLL.removeLast();
@@ -16,9 +18,23 @@ public class LLTester {
         customLL.addFirst(1);
         customLL.print();
         customLL.addFirst(2);
+        System.out.println("Printing after addFirst");
+        customLL.print();
         System.out.println(" head " + customLL.getHead().getValue());
         System.out.println(" Tail " + customLL.getTail().getValue());
         System.out.println(" Length " + customLL.getLength());
+        customLL.removeFirst();
+        System.out.println(" head " + customLL.getHead().getValue());
+        System.out.println(customLL.get(customLL.getLength()-1).getValue());
+        customLL.set(customLL.getLength() -1, 5);
+        System.out.println("printing after setting");
+        customLL.insert(customLL.getLength(), 8);
+        customLL.print();
+        customLL.insert(1,2);
+        customLL.set(customLL.getLength()-1, 6);
+        System.out.println("printing favourite number");
+        customLL.print();
+
 
     }
 }

@@ -46,6 +46,48 @@ public class CustomLinkedList {
         length++;
     }
 
+    public Node get(int index){
+        if(index < 0 || index >= length)
+            throw new IllegalArgumentException("Index out of bound");
+        Node temp = head;
+        for (int i = 0; i < index; i++) {
+            temp = temp.next;
+        }
+        return temp;
+    }
+
+    /**
+     * Method to set value at given index
+     * @param index at  which value to be updated
+     * @param value that assigned to the Node at given index
+     */
+    public void set(int index,int value){
+        Node node = get(index);
+        node.value = value;
+    }
+
+    /**
+     * Insert a new Node at a given index, it will move the Node if we are adding in the middle of the list
+     * @param index at which Node to be inserted if index == length it will be appended at the end
+     * @param value to be assigned to the newly inserted Node
+     */
+    public void insert(int index, int value){
+        if(index < 0 || index > length)
+            throw new IllegalArgumentException("Index out of bound");
+        if(index == 0) {
+            addFirst(value);
+        }else if(index == length) { // appending at the end
+            add(value);
+        }else{
+            Node newNode = new Node(value);
+            // finding previous Node of the intended index
+            Node preNode = get(index - 1);
+            newNode.next = preNode.next;
+            preNode.next = newNode;
+            length++;
+        }
+    }
+
     public void print(){
         if(length == 0)
             throw new UnsupportedOperationException("LinkedList is empty");
@@ -72,6 +114,19 @@ public class CustomLinkedList {
             }
             tail = pre;
             tail.next = null;
+            length--;
+        }
+    }
+
+    public void removeFirst(){
+        if(length == 0)
+            throw new UnsupportedOperationException("LinkedList is empty");
+        if(length == 1){
+            head = null;
+            tail = null;
+            length = 0;
+        }else {
+            head = head.next;
             length--;
         }
     }
