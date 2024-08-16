@@ -35,6 +35,18 @@ public class LLTester {
         System.out.println("printing favourite number");
         customLL.print();
 
+        customLL.removeAll();
+        System.out.println("Adding new elements");
+
+        customLL.add(1);
+        customLL.add(2);
+        customLL.add(3);
+        customLL.add(4);
+        customLL.print();
+        System.out.println("reversing");
+        customLL.reverse();
+        customLL.print();
+
 
     }
 }

@@ -88,6 +88,45 @@ public class CustomLinkedList {
         }
     }
 
+    public void remove(int index){
+        if(index < 0 || index > length)
+            throw new IllegalArgumentException("Index out of bound");
+        if(index == 0) {
+            removeFirst();
+        }else if(index == length - 1){
+            removeLast();
+        }else{
+            Node prevNode = get(index - 1);
+            Node temp = prevNode.next;
+            prevNode.next = temp.next;
+            length--;
+        }
+
+    }
+
+
+    public void removeAll(){
+        head = null;
+        tail = null;
+        length = 0;
+    }
+
+    public void reverse(){
+        Node temp = head;
+        head = tail;
+        tail = temp;
+        Node after = temp.next;
+        Node before = null;
+
+        for (int i = 0; i < length; i++) {
+            after = temp.next;
+            temp.next = before;
+            before = temp;
+            temp = after;
+        }
+
+    }
+
     public void print(){
         if(length == 0)
             throw new UnsupportedOperationException("LinkedList is empty");
