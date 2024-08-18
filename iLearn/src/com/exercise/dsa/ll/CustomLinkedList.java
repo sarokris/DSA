@@ -31,7 +31,7 @@ public class CustomLinkedList {
 
     /**
      * Method to append the values to the tail of the LinkedList
-     * @param value
+     * @param value that will be appended at the tail node
      */
     public void add(int value) {
         Node newNode = new Node(value);
@@ -184,6 +184,25 @@ public class CustomLinkedList {
             head = newHead;
         }
         length++;
+    }
+
+    /**
+     * it finds the middle node without using the length
+     * @return the middleNode
+     *  When the linked list has an odd number of nodes, like 1 -> 2 -> 3 -> 4 -> 5, the function will find the exact middle node.
+     *  In this case, it will return the node containing the value 3.
+     *  For example, if the linked list is 1 -> 2 -> 3 -> 4 -> 5 -> 6, the two middle nodes are 3 and 4.
+     *  The function will return the node containing the value 4.
+     *
+     */
+    public Node findMiddle(){
+        Node slow = head;
+        Node fast = head;
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
     }
 
     class Node {

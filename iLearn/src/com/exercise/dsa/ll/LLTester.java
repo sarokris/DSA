@@ -47,6 +47,12 @@ public class LLTester {
         customLL.reverse();
         customLL.print();
 
+        System.out.println("middle node :"+customLL.findMiddle().getValue());
+        customLL.removeLast();
+        System.out.println("middle node :"+customLL.findMiddle().getValue());
+        customLL.removeLast();
+        System.out.println("middle node :"+customLL.findMiddle().getValue());
+
 
     }
 }
