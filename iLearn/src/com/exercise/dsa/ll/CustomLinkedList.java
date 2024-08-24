@@ -205,6 +205,32 @@ public class CustomLinkedList {
         return slow;
     }
 
+    /**
+     * find kth Node from the End without using the length from the LinkedList;
+     * @param k
+     * @return
+     */
+    public Node findKthFromEnd(int k) {
+        Node slow = head; // Initialize slow pointer at head
+        Node fast = head; // Initialize fast pointer at head
+
+        // Move fast pointer k steps ahead
+        for (int i = 0; i < k; i++) {
+            if (fast == null) { // If k is out of bounds, return null
+                return null;
+            }
+            fast = fast.next; // Move the fast pointer to the next node
+        }
+
+        // Move both pointers until fast reaches the end
+        while (fast != null) {
+            slow = slow.next; // Move the slow pointer to the next node
+            fast = fast.next; // Move the fast pointer to the next node
+        }
+
+        return slow; // Return the kth node from the end (slow pointer)
+    }
+
     class Node {
 
         Node next;

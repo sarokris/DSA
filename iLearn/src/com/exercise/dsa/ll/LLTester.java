@@ -53,6 +53,19 @@ public class LLTester {
         customLL.removeLast();
         System.out.println("middle node :"+customLL.findMiddle().getValue());
 
+        customLL.add(2);
+        customLL.add(1);
+        customLL.print();
+        //edge case when finding the tail
+        if(customLL.findKthFromEnd(1).getValue() == 1){
+            System.out.println("success");
+        }
+
+        //edge case when finding the head
+        if(customLL.getHead().getValue() == customLL.findKthFromEnd(customLL.getLength()).getValue()){
+            System.out.println("Finding the head node success");
+        }
+
 
     }
 }
