@@ -12,6 +12,12 @@ public class DLLTester {
         //printing the element after appending
         cDll.print();
         //printing tail and head
-        System.out.format("Head : %d, Tail : %d, Length:%d",cDll.getHead().getValue(),cDll.getTail().getValue(),cDll.getLength());
+        System.out.format("Head : %d, Tail : %d, Length:%d \n",cDll.getHead().getValue(),cDll.getTail().getValue(),cDll.getLength());
+        System.out.format("item removed: %d \n",cDll.removeLast().getValue());
+        //printing tail and head
+        System.out.format("Head : %d, Tail : %d, Length:%d \n",cDll.getHead().getValue(),cDll.getTail().getValue(),cDll.getLength());
+        cDll.print();
+        cDll.addFirst(0);
+        cDll.print();
     }
 }
