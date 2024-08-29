@@ -16,8 +16,12 @@ public class DLLTester {
         System.out.format("item removed: %d \n",cDll.removeLast().getValue());
         //printing tail and head
         System.out.format("Head : %d, Tail : %d, Length:%d \n",cDll.getHead().getValue(),cDll.getTail().getValue(),cDll.getLength());
-        cDll.print();
         cDll.addFirst(0);
         cDll.print();
+        cDll.removeFirst();
+        System.out.format("Head : %d, Tail : %d, Length:%d \n",cDll.getHead().getValue(),cDll.getTail().getValue(),cDll.getLength());
+        cDll.removeLast();
+        System.out.format("Head : %d, Tail : %d, Length:%d \n",cDll.getHead().getValue(),cDll.getTail().getValue(),cDll.getLength());
+
     }
 }

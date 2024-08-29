@@ -64,6 +64,21 @@ public class CustomDoubleLinkedList {
         length++;
     }
 
+    public Node removeFirst(){
+        if(head == null) return null;
+        Node temp = head;
+        if(length == 1){
+            head = null;
+            tail = null;
+        }else{
+            Node newHead = head.next;
+            head.next = null;
+            head = newHead;
+        }
+        length--;
+        return temp;
+    }
+
     public Node removeLast(){
         if(length == 0) return null;
         Node toBeRemoved = tail;
