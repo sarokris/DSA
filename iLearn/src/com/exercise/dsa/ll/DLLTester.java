@@ -22,6 +22,15 @@ public class DLLTester {
         System.out.format("Head : %d, Tail : %d, Length:%d \n",cDll.getHead().getValue(),cDll.getTail().getValue(),cDll.getLength());
         cDll.removeLast();
         System.out.format("Head : %d, Tail : %d, Length:%d \n",cDll.getHead().getValue(),cDll.getTail().getValue(),cDll.getLength());
+        cDll.addFirst(0);
+        cDll.append(2);
+        cDll.append(3);
+        cDll.append(4);
+        System.out.println(cDll.get(4).getValue());
+        System.out.format("Head : %d, Tail : %d, Length:%d \n",cDll.getHead().getValue(),cDll.getTail().getValue(),cDll.getLength());
+        cDll.insert(3,5);
+        cDll.insert(4,6);
+        cDll.print();
 
     }
 }

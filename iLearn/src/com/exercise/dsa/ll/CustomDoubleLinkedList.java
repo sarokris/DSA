@@ -95,6 +95,57 @@ public class CustomDoubleLinkedList {
         return toBeRemoved;
     }
 
+    public Node get(int index){
+        if(index < 0 || index >=length) return null;
+        if(index == 0) return head;
+        if(index == length -1) return tail;
+        Node temp = head;
+        if(index < length/2){
+            for (int i = 0; i < index; i++) {
+                temp= temp.next;
+            }
+        }else{
+            temp = tail;
+            for (int i = length - 1 ; i > index ; i--) {
+                temp=temp.previous;
+            }
+        }
+        return temp;
+    }
+
+    public boolean set(int index, int value){
+        Node temp = get(index);
+        if(temp != null){
+            temp.value = value;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean insert(int index,int value){
+        if(index < 0 || index >length) return false;
+        if(index == 0){
+            addFirst(value);
+            return true;
+        }
+        if(index == length){
+            append(value);
+            return true;
+        }
+        Node newNode = new Node(value);
+        Node prevNode = get(index - 1);
+        Node nextNode = prevNode.next;
+
+        newNode.previous = prevNode;
+        newNode.next = nextNode;
+
+        prevNode.next = newNode;
+        nextNode.previous = newNode;
+        length++;
+        return true;
+
+    }
+
     class Node {
         private Node next;
         private Node previous;
