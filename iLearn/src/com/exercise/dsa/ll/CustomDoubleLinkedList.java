@@ -146,6 +146,20 @@ public class CustomDoubleLinkedList {
 
     }
 
+    public Node remove(int index){
+        if(index < 0 || index >= length) return null;
+        if(index == length - 1) return removeLast();
+        if (index == 0) return  removeFirst();
+
+        Node temp = get(index);
+        temp.previous.next = temp.next;
+        temp.next.previous = temp.previous;
+        temp.previous = null;
+        temp.next = null;
+        length--;
+        return temp;
+    }
+
     class Node {
         private Node next;
         private Node previous;
