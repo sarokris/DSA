@@ -1,5 +1,7 @@
 package com.exercise.dsa.ll;
 
+import java.util.StringJoiner;
+
 public class CustomLinkedList {
     private Node head;
     private Node tail;
@@ -131,10 +133,12 @@ public class CustomLinkedList {
         if(length == 0)
             throw new UnsupportedOperationException("LinkedList is empty");
         Node temp = head;
+        StringJoiner joiner = new StringJoiner(" -> ");
         while(temp != null){
-            System.out.println(temp.value);
+            joiner.add(String.valueOf(temp.value));
             temp = temp.next;
         }
+        System.out.println(joiner);
     }
 
     public void removeLast(){
@@ -229,6 +233,29 @@ public class CustomLinkedList {
         }
 
         return slow; // Return the kth node from the end (slow pointer)
+    }
+
+    public void partitionList(int x){
+        if(head == null) return;
+        Node current = head;
+        Node lowerNodes = new Node(0);
+        Node higherNodes = new Node(0);
+
+        Node prev1 = lowerNodes;
+        Node prev2 = higherNodes;
+
+        while(current != null){
+            if (current.value < x) {
+                prev1.next = current;
+                prev1 = current;
+            }else{
+                prev2.next = current;
+                prev2 = current;
+            }
+            current = current.next;
+        }
+
+
     }
 
     class Node {

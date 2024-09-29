@@ -66,6 +66,36 @@ public class LLTester {
             System.out.println("Finding the head node success");
         }
 
+        customLL.removeAll();
+
+//        Example 1:
+//
+//        Input:
+//
+//        Linked List: 3 -> 8 -> 5 -> 10 -> 2 -> 1 x: 5
+//
+//        Process:
+//
+//        Values less than 5: 3, 2, 1
+//
+//        Values greater than or equal to 5: 8, 5, 10
+//
+//        Output:
+//
+//        Linked List: 3 -> 2 -> 1 -> 8 -> 5 -> 10  // relative path should be maintained thats why 8 still previous for 5
+
+
+
+
+        customLL.add(3);
+        customLL.add(8);
+        customLL.add(5);
+        customLL.add(10);
+        customLL.add(2);
+        customLL.add(1);
+
+        customLL.partitionList(5);
+        customLL.print();
 
     }
 }
